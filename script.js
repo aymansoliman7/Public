@@ -18,18 +18,13 @@ const supabaseClient = window.supabase.createClient(
 );
 
 // Visitor Tracking
-
 async function trackVisitor() {
     try {
         let visitorId = localStorage.getItem("baqiyat_visitor_id");
 
         if (!visitorId) {
             visitorId = crypto.randomUUID();
-
-            localStorage.setItem(
-                "baqiyat_visitor_id",
-                visitorId
-            );
+            localStorage.setItem("baqiyat_visitor_id", visitorId);
         }
 
         let deviceType = "desktop";
@@ -40,69 +35,57 @@ async function trackVisitor() {
             deviceType = "mobile";
         }
 
-        const { error } = await supabaseClient.rpc(
-            "record_visit",
-            {
-                p_visitor_id: visitorId,
-                p_device_type: deviceType
-            }
-        );
+        const { error } = await supabaseClient.rpc("record_visit", {
+            p_visitor_id: visitorId,
+            p_device_type: deviceType
+        });
 
         if (error) {
             console.error("Visitor tracking error:", error);
         }
-
     } catch (error) {
         console.error("Tracking error:", error);
     }
 }
 
-// Record this visit
 trackVisitor();
 
 // Current Counter
 let count = 0;
-let globalCount = 0;
 
 // Load Saved Personal Counter
 function loadCount() {
-    const savedCount = localStorage.getItem(
-        "tasbeeh_" + zekr.value
-    );
-
+    const savedCount = localStorage.getItem("tasbeeh_" + zekr.value);
     count = Number(savedCount) || 0;
     countDisplay.textContent = count;
 }
 
 // Save Personal Counter
 function saveCount() {
-    localStorage.setItem(
-        "tasbeeh_" + zekr.value,
-        count
-    );
+    localStorage.setItem("tasbeeh_" + zekr.value, count);
 }
 
-// Load Global Counter
+// Load TOTAL Global Counter (All Azkar)
 async function loadGlobalCount() {
     const { data, error } = await supabaseClient
         .from("tasbeeh_totals")
-        .select("count")
-        .eq("zekr", zekr.value)
-        .maybeSingle();
+        .select("count");
 
     if (error) {
         console.error("Global counter error:", error);
         return;
     }
 
-    globalCount = data ? Number(data.count) : 0;
+    const total = data.reduce((sum, item) => {
+        return sum + Number(item.count);
+    }, 0);
 
-    globalCountDisplay.textContent = globalCount;
+    globalCountDisplay.textContent = total;
 }
 
 // Increase Global Counter
 async function increaseGlobalCount() {
-    const { data, error } = await supabaseClient.rpc(
+    const { error } = await supabaseClient.rpc(
         "increment_tasbeeh",
         {
             p_zekr: zekr.value
@@ -115,14 +98,13 @@ async function increaseGlobalCount() {
         return;
     }
 
-    globalCount++;
-    globalCountDisplay.textContent = globalCount;
+    // Reload the total of ALL azkar
+    await loadGlobalCount();
 }
 
 // Tasbeeh Button
 tasbeehBtn.addEventListener("click", async function () {
     count++;
-
     countDisplay.textContent = count;
     saveCount();
 
@@ -132,14 +114,12 @@ tasbeehBtn.addEventListener("click", async function () {
 // Change Zekr
 zekr.addEventListener("change", function () {
     loadCount();
-    loadGlobalCount();
+    // The global total does not change when selecting another zekr
 });
 
 // Reset Personal Counter Only
 resetBtn.addEventListener("click", function () {
-    const confirmReset = confirm(
-        "هل تريد تصفير عداد هذا الذكر؟"
-    );
+    const confirmReset = confirm("هل تريد تصفير عداد هذا الذكر؟");
 
     if (confirmReset) {
         count = 0;
