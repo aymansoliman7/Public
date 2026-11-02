@@ -166,42 +166,49 @@ select {
     color: #d9cda9;
 }
 
-/* Global Counter - Small Side Box */
+/* Global Counter - Bottom Right */
 
 .global-counter {
-    position: fixed;
-    right: 15px;
-    bottom: 20px;
-    z-index: 1000;
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 15px !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 105px !important;
+    min-width: 0 !important;
+    padding: 8px 6px !important;
 
-    min-width: 115px;
-    padding: 10px 14px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 
     background: linear-gradient(145deg, #174b35, #09251c);
     color: #d8b65e;
 
     border: 1px solid #b99a50;
-    border-radius: 14px;
+    border-radius: 12px;
 
     box-shadow: 0 5px 20px #00000060;
+    z-index: 1000;
+    text-align: center;
 }
 
 .global-label {
-    font-size: 11px;
+    font-size: 10px !important;
     color: #e6d5a5;
-    line-height: 1.5;
+    line-height: 1.4;
+    margin: 0;
+    white-space: nowrap;
 }
 
 #globalCount {
-    font-size: 23px;
+    font-size: 21px !important;
     font-weight: bold;
     color: #f3d782;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 /* Buttons */
@@ -353,18 +360,18 @@ footer span {
     }
 
     .global-counter {
-        right: 10px;
-        bottom: 12px;
-        min-width: 90px;
-        padding: 7px 10px;
-        border-radius: 12px;
+        right: 8px !important;
+        bottom: 10px !important;
+        width: 90px !important;
+        padding: 7px 5px !important;
+        border-radius: 11px;
     }
 
     .global-label {
-        font-size: 10px;
+        font-size: 9px !important;
     }
 
     #globalCount {
-        font-size: 20px;
+        font-size: 19px !important;
     }
 }
