@@ -1,0 +1,317 @@
+
+/* General Settings */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #071d17;
+    color: #f5f0df;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Header */
+
+.header {
+    padding: 25px 15px;
+    background: #0b2a20;
+    border-bottom: 1px solid #b99a50;
+}
+
+.logo {
+    color: #d8b65e;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.header p {
+    color: #c8b985;
+    font-size: 13px;
+}
+
+/* Main Container */
+
+main {
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Dedication Section */
+
+.dedication {
+    padding: 45px 15px 35px;
+    margin-top: 15px;
+    background: linear-gradient(145deg, #103c2c, #09251c);
+    border: 1px solid #9e8544;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px #00000040;
+}
+
+.moon {
+    color: #d8b65e;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.small-title {
+    color: #d8b65e;
+    font-size: 17px;
+}
+
+.dedication h1 {
+    color: #f1d68a;
+    font-size: 27px;
+    margin: 15px 0;
+    line-height: 1.7;
+}
+
+.dedication-from {
+    margin: 25px auto;
+    padding: 18px;
+    border-top: 1px solid #9e8544;
+    border-bottom: 1px solid #9e8544;
+    max-width: 400px;
+}
+
+.dedication-from p {
+    color: #c8b985;
+    font-size: 15px;
+}
+
+.dedication-from h2 {
+    color: #f1d68a;
+    margin-top: 5px;
+    font-size: 22px;
+}
+
+.dua {
+    color: #e6e0ce;
+    font-size: 15px;
+    max-width: 550px;
+    margin: 15px auto;
+}
+
+.decoration {
+    color: #d8b65e;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+/* Tasbeeh Section */
+
+.tasbeeh {
+    margin-top: 30px;
+    padding: 30px 15px;
+    background: #0d2b21;
+    border: 1px solid #816d3c;
+    border-radius: 22px;
+}
+
+h2 {
+    color: #e0bd65;
+    font-size: 24px;
+}
+
+.section-description {
+    color: #b9b5a4;
+    margin: 5px 0 20px;
+}
+
+/* Zekr Selection */
+
+select {
+    width: 100%;
+    max-width: 350px;
+    padding: 13px;
+    background: #092019;
+    color: #f5e7bd;
+    border: 1px solid #b99a50;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px auto 25px;
+}
+
+/* Counter */
+
+.counter-circle {
+    width: 190px;
+    height: 190px;
+    border: 4px solid #d5b45d;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #174b35, #09251c);
+    box-shadow: 0 0 25px #d5b45d30;
+}
+
+.counter-circle span {
+    color: #f3d782;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.counter-circle small {
+    color: #d9cda9;
+}
+
+/* Buttons */
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.tasbeeh-btn {
+    display: block;
+    width: 170px;
+    height: 65px;
+    margin: auto;
+    background: linear-gradient(135deg, #d7b65e, #a98232);
+    color: #10271d;
+    border: none;
+    border-radius: 35px;
+    font-size: 23px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px #00000040;
+}
+
+.reset-btn {
+    margin-top: 18px;
+    padding: 10px 22px;
+    color: #e2ca8a;
+    background: transparent;
+    border: 1px solid #9d8347;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.saved-message {
+    color: #a9b9a9;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* Prayers Section */
+
+.prayers {
+    margin-top: 30px;
+    padding: 25px 15px;
+    background: #0d2b21;
+    border: 1px solid #816d3c;
+    border-radius: 22px;
+}
+
+.prayer-card {
+    background: #123a2c;
+    border-right: 3px solid #d5b45d;
+    padding: 17px;
+    margin-top: 15px;
+    border-radius: 8px;
+    color: #eee6d1;
+    font-size: 15px;
+}
+
+/* Sharing Section */
+
+.sharing {
+    margin-top: 30px;
+    padding: 25px 15px;
+}
+
+.sharing p {
+    color: #c8c4b4;
+    margin: 10px 0 20px;
+}
+
+.share-btn {
+    padding: 13px 30px;
+    background: #d5b45d;
+    color: #10271d;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+    background: #051710;
+    padding: 30px 15px;
+    border-top: 1px solid #806b39;
+    color: #e5d5a8;
+}
+
+.footer-name {
+    color: #d5b45d;
+    margin: 8px 0;
+}
+
+.developer {
+    margin-top: 20px;
+}
+
+.developer p {
+    color: #b9b5a4;
+    font-size: 13px;
+}
+
+.developer h3 {
+    color: #d5b45d;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 5px 0 12px;
+}
+
+footer span {
+    font-size: 12px;
+    color: #9da99e;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 480px) {
+
+    main {
+        padding: 12px;
+    }
+
+    .dedication h1 {
+        font-size: 22px;
+    }
+
+    .counter-circle {
+        width: 165px;
+        height: 165px;
+    }
+
+    .counter-circle span {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+}
