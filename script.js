@@ -17,6 +17,49 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_KEY
 );
 
+// Visitor Tracking
+
+async function trackVisitor() {
+    try {
+        let visitorId = localStorage.getItem("baqiyat_visitor_id");
+
+        if (!visitorId) {
+            visitorId = crypto.randomUUID();
+
+            localStorage.setItem(
+                "baqiyat_visitor_id",
+                visitorId
+            );
+        }
+
+        let deviceType = "desktop";
+
+        if (/iPad|Tablet/i.test(navigator.userAgent)) {
+            deviceType = "tablet";
+        } else if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+            deviceType = "mobile";
+        }
+
+        const { error } = await supabaseClient.rpc(
+            "record_visit",
+            {
+                p_visitor_id: visitorId,
+                p_device_type: deviceType
+            }
+        );
+
+        if (error) {
+            console.error("Visitor tracking error:", error);
+        }
+
+    } catch (error) {
+        console.error("Tracking error:", error);
+    }
+}
+
+// Record this visit
+trackVisitor();
+
 // Current Counter
 let count = 0;
 let globalCount = 0;
